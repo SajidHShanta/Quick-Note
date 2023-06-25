@@ -17,19 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.setupWindow(with: scene)
         self.checkAuthentication()
         
-        // create new user
-        //        let userRequest = RegisterUserRequest(
-        //            username: "bc",
-        //            email: "b@c.com",
-        //            password: "password123"
-        //        )
-        //        AuthService.shared.registerUser(with: userRequest) { wasRegistered, error in
-        //            if let error = error {
-        //                print(error.localizedDescription)
-        //                return
-        //            }
-        //            print("wasRegistered: ", wasRegistered)
-        //        }
+//         create new user
+                let userRequest = RegisterUserRequest(
+                    username: "de",
+                    email: "d@e.com",
+                    password: "password123"
+                )
+                AuthService.shared.registerUser(with: userRequest) { wasRegistered, error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }
+                    print("wasRegistered: ", wasRegistered)
+                }
     }
     
     private func setupWindow(with scene: UIScene) {
@@ -42,23 +42,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     public func checkAuthentication() {
         if Auth.auth().currentUser == nil {
             // login page
-            self.goToController(with: LoginController())
+            self.goToController(with: "LoginPage")
         } else {
             //home page
-            self.goToController(with: HomeViewController())
+            self.goToController(with: "HomePage")
         }
     }
     
-    private func goToController(with viewController: UIViewController) {
+    private func goToController(with viewControllerIdentifier: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
         DispatchQueue.main.async { [weak self] in
             UIView.animate(withDuration: 0.25) {
                 self?.window?.layer.opacity = 0
                 
             } completion: { [weak self] _ in
-                
-                let nav = UINavigationController(rootViewController: viewController)
-                nav.modalPresentationStyle = .fullScreen
-                self?.window?.rootViewController = nav
+                var vc : UIViewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as UIViewController
+                vc.modalPresentationStyle = .fullScreen
+                self?.window?.rootViewController = vc
                 
                 UIView.animate(withDuration: 0.25) { [weak self] in
                     self?.window?.layer.opacity = 1
@@ -67,4 +68,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 }
-
