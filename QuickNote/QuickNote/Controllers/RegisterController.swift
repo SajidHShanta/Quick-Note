@@ -14,9 +14,12 @@ class RegisterController: UIViewController {
     
     @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var confirmPasswordTextField: PasswordTextField!
+    @IBOutlet weak var registerErrorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerErrorLabel.isHidden = true
         
         emailTextField.keyboardType = .emailAddress
         passwordTextField.textContentType = .newPassword
@@ -41,10 +44,20 @@ class RegisterController: UIViewController {
     
     
     @IBAction func registerButtonPressed(_ sender: Any) {
+        if passwordTextField.text != confirmPasswordTextField.text {
+            self.registerErrorLabel.text = "New password and confirm password don't match"
+            self.registerErrorLabel.isHidden = false
+            return
+        }
+
         let userRequest = RegisterUserRequest(username: usernameTextField.text ?? "", email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+            
         
         AuthService.shared.registerUser(with: userRequest) { isRegistered, error in
             if let error = error {
+                self.registerErrorLabel.text = error.localizedDescription
+                self.registerErrorLabel.isHidden = false
+                
                 print(error.localizedDescription)
                 return
             }
