@@ -17,19 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.setupWindow(with: scene)
         self.checkAuthentication()
         
-//         create new user
-                let userRequest = RegisterUserRequest(
-                    username: "de",
-                    email: "d@e.com",
-                    password: "password123"
-                )
-                AuthService.shared.registerUser(with: userRequest) { wasRegistered, error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                        return
-                    }
-                    print("wasRegistered: ", wasRegistered)
-                }
+        //         create new user
+//        let userRequest = RegisterUserRequest(
+//            username: "de",
+//            email: "d@e.com",
+//            password: "password123"
+//        )
+//        AuthService.shared.registerUser(with: userRequest) { wasRegistered, error in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            print("wasRegistered: ", wasRegistered)
+//        }
     }
     
     private func setupWindow(with scene: UIScene) {
@@ -51,7 +51,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func goToController(with viewControllerIdentifier: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
+        
         DispatchQueue.main.async { [weak self] in
             UIView.animate(withDuration: 0.25) {
                 self?.window?.layer.opacity = 0

@@ -234,49 +234,39 @@
             </objects>
             <point key="canvasLocation" x="1018" y="-138"/>
         </scene>
-        <!--Register View Controller-->
+        <!--Register Controller-->
         <scene sceneID="fmt-a1-ejd">
             <objects>
-                <viewController id="baE-K2-GH8" customClass="RegisterViewController" customModule="QuickNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="baE-K2-GH8" customClass="RegisterController" customModule="QuickNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="51V-Xa-y0z">
                         <rect key="frame" x="0.0" y="0.0" width="361" height="339.33333333333331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gaq-WF-8eb">
-                                <rect key="frame" x="0.0" y="0.0" width="361" height="417.33333333333331"/>
+                                <rect key="frame" x="0.0" y="0.0" width="361" height="289.33333333333331"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Vd-P1-5sM">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ei-WY-BiR">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d48-OQ-kC0">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Blo-EE-4gf">
                                         <rect key="frame" x="0.0" y="64" width="361" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uS2-tJ-4zT">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Wu-n3-6Di" customClass="PasswordTextField" customModule="QuickNote" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="128" width="361" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Blo-EE-4gf">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rgh-Sm-WNw" customClass="PasswordTextField" customModule="QuickNote" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="192" width="361" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Wu-n3-6Di" customClass="PasswordTextField" customModule="QuickNote" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="256" width="361" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rgh-Sm-WNw" customClass="PasswordTextField" customModule="QuickNote" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="320" width="361" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0A-Hb-zuB">
-                                        <rect key="frame" x="0.0" y="384" width="361" height="33.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="256" width="361" height="33.333333333333314"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -300,11 +290,9 @@
                     </view>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="Rgh-Sm-WNw" id="KLv-Mr-qbH"/>
-                        <outlet property="emailTextField" destination="Blo-EE-4gf" id="Yfx-1c-i7E"/>
-                        <outlet property="firstNameTextField" destination="2Vd-P1-5sM" id="ZKg-Oj-sQ5"/>
-                        <outlet property="lastNameTextField" destination="uS2-tJ-4zT" id="AV6-Lc-5Oq"/>
-                        <outlet property="middleNameTextField" destination="d48-OQ-kC0" id="Yw8-Jb-asr"/>
+                        <outlet property="emailTextField" destination="Blo-EE-4gf" id="1wB-HM-aj0"/>
                         <outlet property="passwordTextField" destination="1Wu-n3-6Di" id="4lw-eL-iln"/>
+                        <outlet property="usernameTextField" destination="2ei-WY-BiR" id="7QJ-IX-lBE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBr-1F-CsQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -318,13 +306,43 @@
                     <view key="view" contentMode="scaleToFill" id="sQX-ui-rwP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vam-tT-MFU">
+                                <rect key="frame" x="158" y="409" width="78" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="M8I-hp-zIp" eventType="touchUpInside" id="8cM-XR-n3y"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9St-2w-VvK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Db4-OV-OfZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HB9-Aw-rHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-69" y="717"/>
+            <point key="canvasLocation" x="857.25190839694653" y="716.90140845070425"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YcT-am-Z5D">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wqz-1I-bch" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Y0-ua-zcc">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M8I-hp-zIp" kind="relationship" relationship="rootViewController" id="4su-Cz-2fg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uNI-Dc-Fcb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-69.465648854961827" y="716.90140845070425"/>
         </scene>
     </scenes>
     <resources>

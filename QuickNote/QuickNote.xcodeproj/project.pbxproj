@@ -12,7 +12,7 @@
 		5BC864F02A42C1EE00FE6079 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC864EF2A42C1EE00FE6079 /* SceneDelegate.swift */; };
 		5BC864F72A42C1F000FE6079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC864F62A42C1F000FE6079 /* Assets.xcassets */; };
 		5BC864FA2A42C1F000FE6079 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC864F82A42C1F000FE6079 /* LaunchScreen.storyboard */; };
-		5BC865052A42C21400FE6079 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865022A42C21400FE6079 /* RegisterViewController.swift */; };
+		5BC865052A42C21400FE6079 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865022A42C21400FE6079 /* RegisterController.swift */; };
 		5BC865062A42C21400FE6079 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865032A42C21400FE6079 /* LoginViewController.swift */; };
 		5BC865082A42C28800FE6079 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC865072A42C28800FE6079 /* Main.storyboard */; };
 		5BC8650A2A42C2D500FE6079 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865092A42C2D500FE6079 /* ViewController.swift */; };
@@ -24,7 +24,6 @@
 		FF3F48C62A480660009489AC /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C52A480660009489AC /* LoginUserRequest.swift */; };
 		FF3F48C82A4809FD009489AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C72A4809FD009489AC /* HomeViewController.swift */; };
 		FF3F48CA2A480B43009489AC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C92A480B43009489AC /* AlertManager.swift */; };
-		FF3F48CF2A4815CA009489AC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48CE2A4815CA009489AC /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +35,7 @@
 		5BC864F62A42C1F000FE6079 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BC864F92A42C1F000FE6079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BC864FB2A42C1F000FE6079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BC865022A42C21400FE6079 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5BC865022A42C21400FE6079 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		5BC865032A42C21400FE6079 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5BC865072A42C28800FE6079 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5BC865092A42C2D500FE6079 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +48,6 @@
 		FF3F48C52A480660009489AC /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
 		FF3F48C72A4809FD009489AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FF3F48C92A480B43009489AC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		FF3F48CE2A4815CA009489AC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +103,6 @@
 				FF3F48CB2A48156F009489AC /* Controllers */,
 				5BC865182A43062500FE6079 /* Models */,
 				5BC864ED2A42C1EE00FE6079 /* AppDelegate.swift */,
-				5BC865032A42C21400FE6079 /* LoginViewController.swift */,
-				5BC865022A42C21400FE6079 /* RegisterViewController.swift */,
 				5BC864EF2A42C1EE00FE6079 /* SceneDelegate.swift */,
 				5BC8650B2A42C34D00FE6079 /* Extensions */,
 				5BC865092A42C2D500FE6079 /* ViewController.swift */,
@@ -143,7 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				FF3F48C72A4809FD009489AC /* HomeViewController.swift */,
-				FF3F48CE2A4815CA009489AC /* LoginController.swift */,
+				5BC865032A42C21400FE6079 /* LoginViewController.swift */,
+				5BC865022A42C21400FE6079 /* RegisterController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -267,9 +264,8 @@
 				5BC8650A2A42C2D500FE6079 /* ViewController.swift in Sources */,
 				5BC865062A42C21400FE6079 /* LoginViewController.swift in Sources */,
 				5BC8650F2A42C34D00FE6079 /* UITextFieldExtension.swift in Sources */,
-				FF3F48CF2A4815CA009489AC /* LoginController.swift in Sources */,
 				5BC8650E2A42C34D00FE6079 /* PasswordTextField.swift in Sources */,
-				5BC865052A42C21400FE6079 /* RegisterViewController.swift in Sources */,
+				5BC865052A42C21400FE6079 /* RegisterController.swift in Sources */,
 				5BC864EE2A42C1EE00FE6079 /* AppDelegate.swift in Sources */,
 				FF3F48C62A480660009489AC /* LoginUserRequest.swift in Sources */,
 				FF3F48C82A4809FD009489AC /* HomeViewController.swift in Sources */,
