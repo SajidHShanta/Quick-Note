@@ -169,7 +169,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="SyL-cV-iDK">
-                                <rect key="frame" x="0.0" y="0.0" width="361" height="161.33333333333334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="361" height="205.66666666666666"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkZ-UJ-voA">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="34"/>
@@ -181,8 +181,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBp-Zo-4TS">
+                                        <rect key="frame" x="0.0" y="127.99999999999999" width="361" height="14.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEA-Kr-j6C">
-                                        <rect key="frame" x="0.0" y="127.99999999999999" width="361" height="33.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="172.33333333333334" width="361" height="33.333333333333343"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -197,10 +203,11 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ZEA-Kr-j6C" secondAttribute="trailing" id="NQt-hf-ZBS"/>
                                     <constraint firstItem="ZEA-Kr-j6C" firstAttribute="leading" secondItem="SyL-cV-iDK" secondAttribute="leading" id="Q1p-Op-OgE"/>
+                                    <constraint firstItem="ZEA-Kr-j6C" firstAttribute="top" secondItem="LBp-Zo-4TS" secondAttribute="bottom" constant="10" id="gqI-zq-OKC"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlQ-HI-nwW">
-                                <rect key="frame" x="0.0" y="171.33333333333334" width="361" height="15"/>
+                                <rect key="frame" x="0.0" y="215.66666666666666" width="361" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="9U0-Yy-4ZA"/>
                                 </constraints>
@@ -227,6 +234,8 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="lkZ-UJ-voA" id="uXz-xs-aha"/>
+                        <outlet property="loginErrorLabel" destination="LBp-Zo-4TS" id="Oj3-NJ-xMj"/>
+                        <outlet property="loginStack" destination="SyL-cV-iDK" id="99s-9q-7GZ"/>
                         <outlet property="passwordTextField" destination="krN-LG-o0R" id="EAH-V5-uSg"/>
                     </connections>
                 </viewController>
@@ -239,7 +248,7 @@
             <objects>
                 <viewController id="baE-K2-GH8" customClass="RegisterController" customModule="QuickNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="51V-Xa-y0z">
-                        <rect key="frame" x="0.0" y="0.0" width="361" height="339.33333333333331"/>
+                        <rect key="frame" x="0.0" y="0.0" width="361" height="339"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gaq-WF-8eb">
@@ -361,6 +370,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -9,11 +9,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var loginStack: UIStackView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: PasswordTextField!
+    @IBOutlet weak var loginErrorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginErrorLabel.isHidden = true
         
         emailTextField.keyboardType = .emailAddress
         passwordTextField.textContentType = .password
@@ -30,7 +34,20 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        let userRequest = LoginUserRequest(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
         
+        AuthService.shared.signIn(with: userRequest) { error in
+            if let error = error {
+                self.loginErrorLabel.text = error.localizedDescription
+                self.loginErrorLabel.isHidden = false
+                
+                print(error.localizedDescription)
+                return
+            }
+            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+                sceneDelegate.checkAuthentication()
+            }
+        }
     }
     
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {

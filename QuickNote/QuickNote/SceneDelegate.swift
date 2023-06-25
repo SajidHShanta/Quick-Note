@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self?.window?.layer.opacity = 0
                 
             } completion: { [weak self] _ in
-                var vc : UIViewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as UIViewController
+                let vc : UIViewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as UIViewController
                 vc.modalPresentationStyle = .fullScreen
                 self?.window?.rootViewController = vc
                 
