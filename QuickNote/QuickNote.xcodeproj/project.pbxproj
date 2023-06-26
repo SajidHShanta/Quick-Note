@@ -22,8 +22,12 @@
 		5BC865172A43049600FE6079 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865162A43049600FE6079 /* AuthService.swift */; };
 		5BC8651A2A43064000FE6079 /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865192A43064000FE6079 /* RegisterUserRequest.swift */; };
 		FF3F48C62A480660009489AC /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C52A480660009489AC /* LoginUserRequest.swift */; };
-		FF3F48C82A4809FD009489AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C72A4809FD009489AC /* HomeViewController.swift */; };
+		FF3F48C82A4809FD009489AC /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C72A4809FD009489AC /* LandingViewController.swift */; };
 		FF3F48CA2A480B43009489AC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C92A480B43009489AC /* AlertManager.swift */; };
+		FF3F48D12A496FF5009489AC /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D02A496FF5009489AC /* Note.swift */; };
+		FF3F48D52A498A29009489AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D42A498A29009489AC /* HomeViewController.swift */; };
+		FF3F48D92A498AFD009489AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D82A498AFD009489AC /* DetailViewController.swift */; };
+		FF3F48DB2A499637009489AC /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48DA2A499637009489AC /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +50,12 @@
 		5BC865192A43064000FE6079 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 		7B735631C6EB27EEABE247D5 /* Pods-QuickNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickNote.debug.xcconfig"; path = "Target Support Files/Pods-QuickNote/Pods-QuickNote.debug.xcconfig"; sourceTree = "<group>"; };
 		FF3F48C52A480660009489AC /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
-		FF3F48C72A4809FD009489AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FF3F48C72A4809FD009489AC /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		FF3F48C92A480B43009489AC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		FF3F48D02A496FF5009489AC /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		FF3F48D42A498A29009489AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FF3F48D82A498AFD009489AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FF3F48DA2A499637009489AC /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +113,6 @@
 				5BC864ED2A42C1EE00FE6079 /* AppDelegate.swift */,
 				5BC864EF2A42C1EE00FE6079 /* SceneDelegate.swift */,
 				5BC8650B2A42C34D00FE6079 /* Extensions */,
-				5BC865092A42C2D500FE6079 /* ViewController.swift */,
 				5BC865072A42C28800FE6079 /* Main.storyboard */,
 				5BC864F62A42C1F000FE6079 /* Assets.xcassets */,
 				5BC864F82A42C1F000FE6079 /* LaunchScreen.storyboard */,
@@ -131,6 +138,7 @@
 			children = (
 				5BC865192A43064000FE6079 /* RegisterUserRequest.swift */,
 				FF3F48C52A480660009489AC /* LoginUserRequest.swift */,
+				FF3F48D02A496FF5009489AC /* Note.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,9 +146,13 @@
 		FF3F48CB2A48156F009489AC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FF3F48C72A4809FD009489AC /* HomeViewController.swift */,
+				5BC865092A42C2D500FE6079 /* ViewController.swift */,
+				FF3F48C72A4809FD009489AC /* LandingViewController.swift */,
 				5BC865032A42C21400FE6079 /* LoginViewController.swift */,
 				5BC865022A42C21400FE6079 /* RegisterController.swift */,
+				FF3F48D42A498A29009489AC /* HomeViewController.swift */,
+				FF3F48D82A498AFD009489AC /* DetailViewController.swift */,
+				FF3F48DA2A499637009489AC /* AddNoteViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -266,9 +278,13 @@
 				5BC8650F2A42C34D00FE6079 /* UITextFieldExtension.swift in Sources */,
 				5BC8650E2A42C34D00FE6079 /* PasswordTextField.swift in Sources */,
 				5BC865052A42C21400FE6079 /* RegisterController.swift in Sources */,
+				FF3F48D52A498A29009489AC /* HomeViewController.swift in Sources */,
+				FF3F48D12A496FF5009489AC /* Note.swift in Sources */,
+				FF3F48D92A498AFD009489AC /* DetailViewController.swift in Sources */,
 				5BC864EE2A42C1EE00FE6079 /* AppDelegate.swift in Sources */,
 				FF3F48C62A480660009489AC /* LoginUserRequest.swift in Sources */,
-				FF3F48C82A4809FD009489AC /* HomeViewController.swift in Sources */,
+				FF3F48C82A4809FD009489AC /* LandingViewController.swift in Sources */,
+				FF3F48DB2A499637009489AC /* AddNoteViewController.swift in Sources */,
 				FF3F48CA2A480B43009489AC /* AlertManager.swift in Sources */,
 				5BC8651A2A43064000FE6079 /* RegisterUserRequest.swift in Sources */,
 				5BC864F02A42C1EE00FE6079 /* SceneDelegate.swift in Sources */,

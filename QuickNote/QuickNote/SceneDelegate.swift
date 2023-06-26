@@ -45,7 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.goToController(with: "LoginPage")
         } else {
             //home page
-            self.goToController(with: "HomePage")
+            self.goToController(with: "LandingPage")
         }
     }
     
@@ -57,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self?.window?.layer.opacity = 0
                 
             } completion: { [weak self] _ in
-                let vc : UIViewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as UIViewController
+                let vc = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as UIViewController
                 vc.modalPresentationStyle = .fullScreen
                 self?.window?.rootViewController = vc
                 
