@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class AddNoteViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
@@ -15,13 +16,20 @@ class AddNoteViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Add Note"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: HomeViewController.self, action: .none)
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
-        let newNote = Note(title: titleTextField.text ?? "", details: detailsTextView.text ?? "")
-        dataSource.notes.append(newNote)
-        dataSource.save()
+//        let newNote = Note(title: titleTextField.text ?? "", details: detailsTextView.text ?? "")
+//        dataSource.notes.append(newNote)
+//        dataSource.save()
+        
+        //MARK: save data on Firestore
+        //create instance of Firebase
+        let db = Firestore.firestore()
+        //to add Data
+        db.collection("Notes").addDocument(data: ["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""])
+        // now run
+        
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil) //reload main table
     }
 }

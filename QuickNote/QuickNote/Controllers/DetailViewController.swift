@@ -19,8 +19,6 @@ class DetailViewController: UIViewController {
         noteDetailTextView.isEditable = false
         saveButton.isHidden = true
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonPressed))
-        
         let deleteButton = UIBarButtonItem(image: UIImage(systemName: "xmark.bin"), style: .plain, target: self, action: #selector(deleteNote))
         deleteButton.tintColor = .red
         let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(composeNote))
@@ -29,22 +27,8 @@ class DetailViewController: UIViewController {
         
         let note = dataSource.notes[noteIndex]
         title = note.title
-        print("details:", note.details)
+//        print("details:", note.details)
         noteDetailTextView.text = note.details
-    }
-    
-    @objc func logoutButtonPressed(_ sender: Any) {
-        AuthService.shared.signOut { [weak self] error in
-            guard let self = self else { return }
-            if let error = error {
-                AlertManager.showLogoutError(on: self, with: error)
-                return
-            }
-            
-            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
-                sceneDelegate.checkAuthentication()
-            }
-        }
     }
     
     @objc func deleteNote() {
