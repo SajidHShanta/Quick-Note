@@ -28,6 +28,7 @@
 		FF3F48D52A498A29009489AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D42A498A29009489AC /* HomeViewController.swift */; };
 		FF3F48D92A498AFD009489AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D82A498AFD009489AC /* DetailViewController.swift */; };
 		FF3F48DB2A499637009489AC /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48DA2A499637009489AC /* AddNoteViewController.swift */; };
+		FFF236682A4AEA7700691AAB /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF236672A4AEA7700691AAB /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		FF3F48D42A498A29009489AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FF3F48D82A498AFD009489AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FF3F48DA2A499637009489AC /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		FFF236672A4AEA7700691AAB /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				5BC865122A42C4CA00FE6079 /* GoogleService-Info.plist */,
 				5BC865162A43049600FE6079 /* AuthService.swift */,
 				FF3F48C92A480B43009489AC /* AlertManager.swift */,
+				FFF236672A4AEA7700691AAB /* DataSource.swift */,
 			);
 			path = QuickNote;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC8650A2A42C2D500FE6079 /* ViewController.swift in Sources */,
+				FFF236682A4AEA7700691AAB /* DataSource.swift in Sources */,
 				5BC865062A42C21400FE6079 /* LoginViewController.swift in Sources */,
 				5BC8650F2A42C34D00FE6079 /* UITextFieldExtension.swift in Sources */,
 				5BC8650E2A42C34D00FE6079 /* PasswordTextField.swift in Sources */,

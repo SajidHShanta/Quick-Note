@@ -6,24 +6,7 @@
 //
 
 import UIKit
-
-class dataSource {
-    let defaults = UserDefaults.standard
-    
-    static var notes: [Note] = []
-    
-    static func save() {
-        let jsonEncoder = JSONEncoder()
-        
-        if let savedData = try? jsonEncoder.encode(dataSource.notes) {
-            let defaults = UserDefaults.standard
-            defaults.set(savedData, forKey: "notes")
-            
-        } else {
-            print("Failed to save people!")
-        }
-    }
-}
+import FirebaseFirestore
 
 class HomeViewController: UITableViewController {
     
@@ -34,13 +17,29 @@ class HomeViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonPressed))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
         
-        let defaults = UserDefaults.standard
-        if let savedNotes = defaults.object(forKey: "notes") as? Data {
-            let jsonDecoder = JSONDecoder()
-            do {
-                dataSource.notes = try jsonDecoder.decode([Note].self, from: savedNotes)
-            } catch {
-                print("Faield to load data")
+//        let defaults = UserDefaults.standard
+//        if let savedNotes = defaults.object(forKey: "notes") as? Data {
+//            let jsonDecoder = JSONDecoder()
+//            do {
+//                DataSource.notes = try jsonDecoder.decode([Note].self, from: savedNotes)
+//            } catch {
+//                print("Faield to load data")
+//            }
+//        }
+        
+        //create firebase instance
+        let db = Firestore.firestore()
+        //read from db
+        db.collection("Notes").getDocuments { data, error in
+            if error == nil && data != nil {
+                if let documents = data?.documents {
+                    for document in documents {
+                        DataSource.notes.append(Note(title: document.data()["title"] as! String, details: document.data()["details"] as! String))
+                    }
+                    self.tableView.reloadData()
+                }
+            } else {
+                print("Faield to read data")
             }
         }
         
@@ -88,14 +87,14 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.notes.count
+        return DataSource.notes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
         
         var content = cell.defaultContentConfiguration()
-        content.text = dataSource.notes[indexPath.row].title
+        content.text = DataSource.notes[indexPath.row].title
         
         cell.contentConfiguration = content
         return cell

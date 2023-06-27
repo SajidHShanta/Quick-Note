@@ -25,15 +25,15 @@ class DetailViewController: UIViewController {
         
         navigationItem.rightBarButtonItems = [deleteButton, composeButton]
         
-        let note = dataSource.notes[noteIndex]
+        let note = DataSource.notes[noteIndex]
         title = note.title
 //        print("details:", note.details)
         noteDetailTextView.text = note.details
     }
     
     @objc func deleteNote() {
-        dataSource.notes.remove(at: noteIndex)
-        dataSource.save()
+        DataSource.notes.remove(at: noteIndex)
+        DataSource.save()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil) //reload main table
         navigationController?.popViewController(animated: true) // go back to previous view
     }
@@ -44,7 +44,7 @@ class DetailViewController: UIViewController {
         saveButton.isHidden = false
     }
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        dataSource.notes[noteIndex].details = noteDetailTextView.text
+        DataSource.notes[noteIndex].details = noteDetailTextView.text
         saveButton.isHidden = true
         noteDetailTextView.isEditable = false
     }
