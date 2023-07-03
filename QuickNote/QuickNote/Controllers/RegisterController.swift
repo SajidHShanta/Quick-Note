@@ -24,7 +24,10 @@ class RegisterController: UIViewController {
         emailTextField.keyboardType = .emailAddress
         passwordTextField.textContentType = .newPassword
         confirmPasswordTextField.textContentType = .newPassword
-
+        
+        usernameTextField.spellCheckingType = .no
+        usernameTextField.autocorrectionType = .no
+        
         //placeholder color with opacity
         usernameTextField.attributedPlaceholder =
         NSAttributedString(string: " Username", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 99.0/255.0, green: 99/255.0, blue: 102.0/255.0, alpha: 0.6)])
