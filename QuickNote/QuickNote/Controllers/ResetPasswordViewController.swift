@@ -25,7 +25,12 @@ class ResetPasswordViewController: UIViewController {
         NSAttributedString(string: " Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 99.0/255.0, green: 99/255.0, blue: 102.0/255.0, alpha: 0.6)])
         
         // add custom bottom border with extension
-        emailTextField.addBottomBorder()
+//        emailTextField.addBottomBorder()
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: emailTextField.frame.size.height - 5, width: view.frame.size.width-32, height: 1)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        emailTextField.borderStyle = .none
+        emailTextField.layer.addSublayer(bottomLine)
     }
     
     @IBAction func EmailSendButtonPressed(_ sender: Any) {
