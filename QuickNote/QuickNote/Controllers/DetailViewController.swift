@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var noteDetailTextView: UITextView!
@@ -35,10 +36,12 @@ class DetailViewController: UIViewController {
     @objc func deleteNote() {
         let vc = UIAlertController(title: "Are you Sure?", message: "Delete this note premanently", preferredStyle: .alert)
         vc.addAction(UIAlertAction(title: "Delete", style: .destructive) {_ in
+            guard let userId = Auth.auth().currentUser?.uid else {return}
+
             //create firebase instance
             let db = Firestore.firestore()
             // delete current Note
-            db.collection("Notes").document(DataSource.notes[self.noteIndex].id).delete()
+            db.collection("users/\(userId)/Notes").document(DataSource.notes[self.noteIndex].id).delete()
             
             // reload main data to update
             DataSource.loadNoteDataFromFirebase()
@@ -58,11 +61,13 @@ class DetailViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
 //        DataSource.notes[noteIndex].details = noteDetailTextView.text
         
+        guard let userId = Auth.auth().currentUser?.uid else {return}
+        
         //Save the Edited verstion to firebase
         //create firebase instance
         let db = Firestore.firestore()
         // save updated version
-        db.collection("Notes").document(DataSource.notes[noteIndex].id).updateData(["details": noteDetailTextView.text as String])
+        db.collection("users/\(userId)/Notes").document(DataSource.notes[noteIndex].id).updateData(["details": noteDetailTextView.text as String])
         
         saveButton.isHidden = true
         noteDetailTextView.isEditable = false

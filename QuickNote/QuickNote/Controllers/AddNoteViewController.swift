@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 import FirebaseFirestore
 
 class AddNoteViewController: UIViewController {
@@ -29,7 +30,12 @@ class AddNoteViewController: UIViewController {
         
         //add Data
 //        db.collection("Notes").addDocument(data: ["title": titleTextField.text ?? "", "details": detailsTextView.text ?? "", "id": UUID().uuidString]) { error in
-        db.collection("Notes").document(UUID().uuidString).setData(["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""]) { error in
+        
+//        db.collection("Notes").document(UUID().uuidString).setData(["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""]) { error in
+        
+        guard let userId = Auth.auth().currentUser?.uid else {return}
+        
+        db.collection("users").document("\(userId)/Notes/\(UUID().uuidString)").setData(["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""]) { error in
             if let error = error {
                 print(error.localizedDescription)
             } else {

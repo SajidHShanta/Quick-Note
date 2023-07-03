@@ -7,32 +7,35 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseAuth
 
 class DataSource {
-    let defaults = UserDefaults.standard
+//    let defaults = UserDefaults.standard
     
     static var notes: [Note] = []
     
-    static func save() {
-        let jsonEncoder = JSONEncoder()
-        
-        if let savedData = try? jsonEncoder.encode(DataSource.notes) {
-            let defaults = UserDefaults.standard
-            defaults.set(savedData, forKey: "notes")
-            
-        } else {
-            print("Failed to save notes!")
-        }
-    }
+//    static func save() {
+//        let jsonEncoder = JSONEncoder()
+//
+//        if let savedData = try? jsonEncoder.encode(DataSource.notes) {
+//            let defaults = UserDefaults.standard
+//            defaults.set(savedData, forKey: "notes")
+//
+//        } else {
+//            print("Failed to save notes!")
+//        }
+//    }
     
     static func loadNoteDataFromFirebase() {
         //delete previous note histry
         DataSource.notes.removeAll(keepingCapacity: true)
         
+        guard let userId = Auth.auth().currentUser?.uid else {return}
+        
         //create firebase instance
         let db = Firestore.firestore()
         //read from db
-        db.collection("Notes").getDocuments { data, error in
+        db.collection("users/\(userId)/Notes").getDocuments { data, error in
             if error == nil && data != nil {
                 if let documents = data?.documents {
                     for document in documents {
