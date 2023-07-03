@@ -33,22 +33,30 @@ class DetailViewController: UIViewController {
     }
     
     @objc func deleteNote() {
-        DataSource.notes.remove(at: noteIndex)
-        DataSource.save()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil) //reload main table
-        navigationController?.popViewController(animated: true) // go back to previous view
+//        DataSource.notes.remove(at: noteIndex)
+//        DataSource.save()
+        
+        //create firebase instance
+        let db = Firestore.firestore()
+        // delete current Note
+        db.collection("Notes").document(DataSource.notes[noteIndex].id).delete()
+        
+        // reload main data to update
+        DataSource.loadNoteDataFromFirebase()
+        
+        // go back to previous view
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func composeNote() {
-        print("compose")
         noteDetailTextView.isEditable = true
         saveButton.isHidden = false
     }
+    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
 //        DataSource.notes[noteIndex].details = noteDetailTextView.text
         
-        //TODO: Save the Edited verstion to firebase
-        print(DataSource.notes[noteIndex].id)
+        //Save the Edited verstion to firebase
         //create firebase instance
         let db = Firestore.firestore()
         // save updated version
