@@ -33,19 +33,21 @@ class DetailViewController: UIViewController {
     }
     
     @objc func deleteNote() {
-//        DataSource.notes.remove(at: noteIndex)
-//        DataSource.save()
-        
-        //create firebase instance
-        let db = Firestore.firestore()
-        // delete current Note
-        db.collection("Notes").document(DataSource.notes[noteIndex].id).delete()
-        
-        // reload main data to update
-        DataSource.loadNoteDataFromFirebase()
-        
-        // go back to previous view
-        navigationController?.popViewController(animated: true)
+        let vc = UIAlertController(title: "Are you Sure?", message: "Delete this note premanently", preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "Delete", style: .destructive) {_ in
+            //create firebase instance
+            let db = Firestore.firestore()
+            // delete current Note
+            db.collection("Notes").document(DataSource.notes[self.noteIndex].id).delete()
+            
+            // reload main data to update
+            DataSource.loadNoteDataFromFirebase()
+            
+            // go back to previous view
+            self.navigationController?.popViewController(animated: true)
+        })
+        vc.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(vc, animated: true)
     }
     
     @objc func composeNote() {
