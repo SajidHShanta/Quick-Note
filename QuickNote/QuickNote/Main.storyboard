@@ -80,7 +80,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="Bmh-mN-dsG"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="facebook"/>
+                                                <state key="normal" image="apple.logo" catalog="system"/>
                                                 <connections>
                                                     <action selector="facebookSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dZ4-WQ-3g7"/>
                                                 </connections>
@@ -92,7 +92,7 @@
                                                     <constraint firstAttribute="height" constant="20" id="bte-B6-LDE"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="google">
+                                                <state key="normal" image="apple.logo" catalog="system">
                                                     <color key="titleColor" name="AccentColor"/>
                                                 </state>
                                                 <connections>
@@ -218,6 +218,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="forgotPasswordButtonPressed:" destination="tUN-8O-TND" eventType="touchUpInside" id="uvc-wY-uLv"/>
+                                    <segue destination="Sg1-Al-z7n" kind="show" id="SZq-hy-Q9K"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -316,6 +317,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBr-1F-CsQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="856" y="168"/>
+        </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="rLE-tQ-RXf">
+            <objects>
+                <viewController id="Sg1-Al-z7n" customClass="ResetPasswordViewController" customModule="QuickNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IeI-jI-kka">
+                        <rect key="frame" x="0.0" y="0.0" width="361" height="339.33333333333331"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XHm-rq-Yis">
+                                <rect key="frame" x="0.0" y="0.0" width="361" height="192"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Reset Password Link" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Rq-Ww-S4n">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jOP-zU-8ao">
+                                        <rect key="frame" x="0.0" y="50.333333333333343" width="361" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqU-bw-c7T">
+                                        <rect key="frame" x="0.0" y="114.33333333333333" width="361" height="14.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kz1-Qt-CRD">
+                                        <rect key="frame" x="0.0" y="158.66666666666666" width="361" height="33.333333333333343"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Send">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="EmailSendButtonPressed:" destination="Sg1-Al-z7n" eventType="touchUpInside" id="XUg-Vo-Y5x"/>
+                                            <action selector="loginButtonPressed:" destination="tUN-8O-TND" eventType="touchUpInside" id="An0-VS-K5L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kz1-Qt-CRD" firstAttribute="leading" secondItem="XHm-rq-Yis" secondAttribute="leading" id="M40-oW-xNG"/>
+                                    <constraint firstAttribute="trailing" secondItem="kz1-Qt-CRD" secondAttribute="trailing" id="MKj-kc-Emr"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bqi-ZJ-bLR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XHm-rq-Yis" firstAttribute="leading" secondItem="bqi-ZJ-bLR" secondAttribute="leading" id="Qvb-jE-0qq"/>
+                            <constraint firstItem="XHm-rq-Yis" firstAttribute="top" secondItem="IeI-jI-kka" secondAttribute="top" id="Y9e-BU-YzW"/>
+                            <constraint firstItem="bqi-ZJ-bLR" firstAttribute="trailing" secondItem="XHm-rq-Yis" secondAttribute="trailing" id="jxp-gV-DyN"/>
+                            <constraint firstItem="XHm-rq-Yis" firstAttribute="centerX" secondItem="bqi-ZJ-bLR" secondAttribute="centerX" id="rCm-2l-OZK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="H2V-ol-nq8"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="jOP-zU-8ao" id="4fK-uI-NXr"/>
+                        <outlet property="errorLabel" destination="RqU-bw-c7T" id="I6l-zf-OUl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6vX-fM-uXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="2"/>
         </scene>
         <!--Landing View Controller-->
         <scene sceneID="qJX-5h-Bmw">
@@ -599,8 +667,6 @@
         <image name="apple.logo" catalog="system" width="105" height="128"/>
         <image name="applescript" catalog="system" width="105" height="128"/>
         <image name="arrowshape.right" catalog="system" width="128" height="104"/>
-        <image name="facebook" width="512" height="512"/>
-        <image name="google" width="512" height="512"/>
         <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

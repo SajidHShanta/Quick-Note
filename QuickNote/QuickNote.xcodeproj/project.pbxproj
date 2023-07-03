@@ -29,6 +29,7 @@
 		FF3F48D92A498AFD009489AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D82A498AFD009489AC /* DetailViewController.swift */; };
 		FF3F48DB2A499637009489AC /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48DA2A499637009489AC /* AddNoteViewController.swift */; };
 		FFF236682A4AEA7700691AAB /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF236672A4AEA7700691AAB /* DataSource.swift */; };
+		FFF977CA2A52B8440079C863 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF977C92A52B8440079C863 /* ResetPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		FF3F48D82A498AFD009489AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FF3F48DA2A499637009489AC /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		FFF236672A4AEA7700691AAB /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		FFF977C92A52B8440079C863 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				FF3F48D42A498A29009489AC /* HomeViewController.swift */,
 				FF3F48D82A498AFD009489AC /* DetailViewController.swift */,
 				FF3F48DA2A499637009489AC /* AddNoteViewController.swift */,
+				FFF977C92A52B8440079C863 /* ResetPasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				FF3F48D52A498A29009489AC /* HomeViewController.swift in Sources */,
 				FF3F48D12A496FF5009489AC /* Note.swift in Sources */,
 				FF3F48D92A498AFD009489AC /* DetailViewController.swift in Sources */,
+				FFF977CA2A52B8440079C863 /* ResetPasswordViewController.swift in Sources */,
 				5BC864EE2A42C1EE00FE6079 /* AppDelegate.swift in Sources */,
 				FF3F48C62A480660009489AC /* LoginUserRequest.swift in Sources */,
 				FF3F48C82A4809FD009489AC /* LandingViewController.swift in Sources */,
