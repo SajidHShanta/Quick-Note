@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class DataSource {
     let defaults = UserDefaults.standard
@@ -21,6 +22,27 @@ class DataSource {
             
         } else {
             print("Failed to save notes!")
+        }
+    }
+    
+    static func loadNoteDataFromFirebase() {
+        //delete previous note histry
+        DataSource.notes.removeAll(keepingCapacity: true)
+        
+        //create firebase instance
+        let db = Firestore.firestore()
+        //read from db
+        db.collection("Notes").getDocuments { data, error in
+            if error == nil && data != nil {
+                if let documents = data?.documents {
+                    for document in documents {
+                        DataSource.notes.append(Note(title: document.data()["title"] as! String, details: document.data()["details"] as! String))
+                    }
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil) //reload main table
+                }
+            } else {
+                print("Faield to read data")
+            }
         }
     }
 }

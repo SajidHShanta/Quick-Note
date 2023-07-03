@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseFirestore
 
 class HomeViewController: UITableViewController {
     
@@ -27,21 +26,7 @@ class HomeViewController: UITableViewController {
 //            }
 //        }
         
-        //create firebase instance
-        let db = Firestore.firestore()
-        //read from db
-        db.collection("Notes").getDocuments { data, error in
-            if error == nil && data != nil {
-                if let documents = data?.documents {
-                    for document in documents {
-                        DataSource.notes.append(Note(title: document.data()["title"] as! String, details: document.data()["details"] as! String))
-                    }
-                    self.tableView.reloadData()
-                }
-            } else {
-                print("Faield to read data")
-            }
-        }
+        DataSource.loadNoteDataFromFirebase()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }

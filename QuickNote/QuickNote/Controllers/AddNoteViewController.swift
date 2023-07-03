@@ -27,9 +27,17 @@ class AddNoteViewController: UIViewController {
         //create instance of Firebase
         let db = Firestore.firestore()
         //to add Data
-        db.collection("Notes").addDocument(data: ["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""])
-        // now run
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil) //reload main table
+        db.collection("Notes").addDocument(data: ["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""]) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.titleTextField.text = ""
+                self.detailsTextView.text = ""
+                
+                //TODO: minimize the sheet
+                
+                DataSource.loadNoteDataFromFirebase()
+            }
+        }
     }
 }
