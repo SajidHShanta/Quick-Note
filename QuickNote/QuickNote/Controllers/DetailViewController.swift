@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var noteDetailTextView: UITextView!
@@ -44,8 +45,19 @@ class DetailViewController: UIViewController {
         saveButton.isHidden = false
     }
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        DataSource.notes[noteIndex].details = noteDetailTextView.text
+//        DataSource.notes[noteIndex].details = noteDetailTextView.text
+        
+        //TODO: Save the Edited verstion to firebase
+        print(DataSource.notes[noteIndex].id)
+        //create firebase instance
+        let db = Firestore.firestore()
+        // save updated version
+        db.collection("Notes").document(DataSource.notes[noteIndex].id).updateData(["details": noteDetailTextView.text as String])
+        
         saveButton.isHidden = true
         noteDetailTextView.isEditable = false
+        
+        // reload main data to update
+        DataSource.loadNoteDataFromFirebase()
     }
 }

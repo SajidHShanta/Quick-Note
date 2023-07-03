@@ -36,7 +36,7 @@ class DataSource {
             if error == nil && data != nil {
                 if let documents = data?.documents {
                     for document in documents {
-                        DataSource.notes.append(Note(title: document.data()["title"] as! String, details: document.data()["details"] as! String))
+                        DataSource.notes.append(Note(title: document.data()["title"] as! String, details: document.data()["details"] as! String, id: document.documentID))
                     }
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil) //reload main table
                 }

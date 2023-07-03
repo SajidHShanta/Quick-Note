@@ -27,7 +27,9 @@ class AddNoteViewController: UIViewController {
         //create instance of Firebase
         let db = Firestore.firestore()
         //to add Data
-        db.collection("Notes").addDocument(data: ["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""]) { error in
+        
+//        db.collection("Notes").addDocument(data: ["title": titleTextField.text ?? "", "details": detailsTextView.text ?? "", "id": UUID().uuidString]) { error in
+        db.collection("Notes").document(UUID().uuidString).setData(["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""]) { error in
             if let error = error {
                 print(error.localizedDescription)
             } else {
