@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
 class ViewController: UIViewController {
     @IBOutlet weak var segmentedPicker: UISegmentedControl!
@@ -21,9 +24,6 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         
         self.view.bringSubviewToFront(loginSegmentView)
-        
-        // for now other option is hidden
-        otherOptions.isHidden = true
     }
     
     @objc func hideKeyboard() {
@@ -46,46 +46,17 @@ class ViewController: UIViewController {
 //            self.view.bringSubviewToFront(registerSegmentView)
             loginSegmentView.isHidden = true
             registerSegmentView.isHidden = false
-            
-            //adjustForKeyboard
-//            let notificationCenter = NotificationCenter.default
-//            notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//            notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         default:
             break
         }
     }
-    
-    @IBAction func facebookSignup(_ sender: Any) {
-        
+    @IBAction func googleSignin(_ sender: Any) {
+        setupGoogle()
     }
     
-    @IBAction func googleSignup(_ sender: Any) {
-        
+    @IBAction func facebookSignin(_ sender: Any) {
     }
     
-    @IBAction func appleSignup(_ sender: Any) {
-        
+    @IBAction func appleSignin(_ sender: Any) {
     }
-    
-//    //MARK: adjust for keyboard
-//    @objc func keyboardWillShow(notification: Notification) {
-//        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-//        if isInRegistarPage && self.view.frame.origin.y == 0 {
-//            let keyboadHeight = keyboardValue.cgRectValue.height
-////            let bottomSpace = self.view.frame.height - (registerSegmentView.frame.origin.y + registerSegmentView.frame.height)
-//            let bottomSpace = (self.view.window?.windowScene?.keyWindow?.frame.height)! - (registerSegmentView.frame.origin.y + registerSegmentView.frame.height)
-//
-//            if keyboadHeight > (bottomSpace + 10) {
-////                let h = keyboadHeight - bottomSpace + 10
-////                self.view.frame.origin.y = -h
-//            self.view.frame = self.view.frame.offsetBy(dx: 0, dy: -(keyboadHeight-bottomSpace))
-//            }
-//        }
-//    }
-//    @objc func keyboardWillHide() {
-//        // back to normal view
-//        self.view.frame.origin.y = 0
-//    }
 }
-

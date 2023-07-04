@@ -48,7 +48,4 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
-    }
 }

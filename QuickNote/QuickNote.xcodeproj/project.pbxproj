@@ -18,7 +18,6 @@
 		5BC8650A2A42C2D500FE6079 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865092A42C2D500FE6079 /* ViewController.swift */; };
 		5BC8650E2A42C34D00FE6079 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8650C2A42C34D00FE6079 /* PasswordTextField.swift */; };
 		5BC8650F2A42C34D00FE6079 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8650D2A42C34D00FE6079 /* UITextFieldExtension.swift */; };
-		5BC865132A42C4CA00FE6079 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BC865122A42C4CA00FE6079 /* GoogleService-Info.plist */; };
 		5BC865172A43049600FE6079 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865162A43049600FE6079 /* AuthService.swift */; };
 		5BC8651A2A43064000FE6079 /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865192A43064000FE6079 /* RegisterUserRequest.swift */; };
 		FF3F48C62A480660009489AC /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C52A480660009489AC /* LoginUserRequest.swift */; };
@@ -28,6 +27,9 @@
 		FF3F48D52A498A29009489AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D42A498A29009489AC /* HomeViewController.swift */; };
 		FF3F48D92A498AFD009489AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D82A498AFD009489AC /* DetailViewController.swift */; };
 		FF3F48DB2A499637009489AC /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48DA2A499637009489AC /* AddNoteViewController.swift */; };
+		FF558E4A2A541E910029D631 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FF558E492A541E910029D631 /* GoogleSignIn */; };
+		FF558E4C2A54201E0029D631 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF558E4B2A54201E0029D631 /* GoogleService-Info.plist */; };
+		FF558E4E2A542A180029D631 /* OtherSigninHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF558E4D2A542A180029D631 /* OtherSigninHelper.swift */; };
 		FFF236682A4AEA7700691AAB /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF236672A4AEA7700691AAB /* DataSource.swift */; };
 		FFF977CA2A52B8440079C863 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF977C92A52B8440079C863 /* ResetPasswordViewController.swift */; };
 		FFF977CD2A52D6300079C863 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FFF977CC2A52D6300079C863 /* IQKeyboardManagerSwift */; };
@@ -48,7 +50,6 @@
 		5BC865092A42C2D500FE6079 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5BC8650C2A42C34D00FE6079 /* PasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		5BC8650D2A42C34D00FE6079 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
-		5BC865122A42C4CA00FE6079 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5BC865162A43049600FE6079 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		5BC865192A43064000FE6079 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 		7B735631C6EB27EEABE247D5 /* Pods-QuickNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickNote.debug.xcconfig"; path = "Target Support Files/Pods-QuickNote/Pods-QuickNote.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +60,8 @@
 		FF3F48D42A498A29009489AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FF3F48D82A498AFD009489AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FF3F48DA2A499637009489AC /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		FF558E4B2A54201E0029D631 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FF558E4D2A542A180029D631 /* OtherSigninHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSigninHelper.swift; sourceTree = "<group>"; };
 		FFF236672A4AEA7700691AAB /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		FFF977C92A52B8440079C863 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +73,7 @@
 			files = (
 				1A0CFF971BBA4B41E8B9AF0E /* Pods_QuickNote.framework in Frameworks */,
 				FFF977CD2A52D6300079C863 /* IQKeyboardManagerSwift in Frameworks */,
+				FF558E4A2A541E910029D631 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,10 +127,10 @@
 				5BC864F62A42C1F000FE6079 /* Assets.xcassets */,
 				5BC864F82A42C1F000FE6079 /* LaunchScreen.storyboard */,
 				5BC864FB2A42C1F000FE6079 /* Info.plist */,
-				5BC865122A42C4CA00FE6079 /* GoogleService-Info.plist */,
 				5BC865162A43049600FE6079 /* AuthService.swift */,
 				FF3F48C92A480B43009489AC /* AlertManager.swift */,
 				FFF236672A4AEA7700691AAB /* DataSource.swift */,
+				FF558E4B2A54201E0029D631 /* GoogleService-Info.plist */,
 			);
 			path = QuickNote;
 			sourceTree = "<group>";
@@ -161,6 +165,7 @@
 				FF3F48D82A498AFD009489AC /* DetailViewController.swift */,
 				FF3F48DA2A499637009489AC /* AddNoteViewController.swift */,
 				FFF977C92A52B8440079C863 /* ResetPasswordViewController.swift */,
+				FF558E4D2A542A180029D631 /* OtherSigninHelper.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			name = QuickNote;
 			packageProductDependencies = (
 				FFF977CC2A52D6300079C863 /* IQKeyboardManagerSwift */,
+				FF558E492A541E910029D631 /* GoogleSignIn */,
 			);
 			productName = QuickNote;
 			productReference = 5BC864EA2A42C1EE00FE6079 /* QuickNote.app */;
@@ -216,6 +222,7 @@
 			mainGroup = 5BC864E12A42C1EE00FE6079;
 			packageReferences = (
 				FFF977CB2A52D6300079C863 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				FF558E482A541E910029D631 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 5BC864EB2A42C1EE00FE6079 /* Products */;
 			projectDirPath = "";
@@ -232,7 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC865082A42C28800FE6079 /* Main.storyboard in Resources */,
-				5BC865132A42C4CA00FE6079 /* GoogleService-Info.plist in Resources */,
+				FF558E4C2A54201E0029D631 /* GoogleService-Info.plist in Resources */,
 				5BC864FA2A42C1F000FE6079 /* LaunchScreen.storyboard in Resources */,
 				5BC864F72A42C1F000FE6079 /* Assets.xcassets in Resources */,
 			);
@@ -299,6 +306,7 @@
 				FFF977CA2A52B8440079C863 /* ResetPasswordViewController.swift in Sources */,
 				5BC864EE2A42C1EE00FE6079 /* AppDelegate.swift in Sources */,
 				FF3F48C62A480660009489AC /* LoginUserRequest.swift in Sources */,
+				FF558E4E2A542A180029D631 /* OtherSigninHelper.swift in Sources */,
 				FF3F48C82A4809FD009489AC /* LandingViewController.swift in Sources */,
 				FF3F48DB2A499637009489AC /* AddNoteViewController.swift in Sources */,
 				FF3F48CA2A480B43009489AC /* AlertManager.swift in Sources */,
@@ -444,7 +452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TSTX33252G;
+				DEVELOPMENT_TEAM = HFX859F777;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuickNote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -452,6 +460,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,7 +470,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -473,7 +482,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TSTX33252G;
+				DEVELOPMENT_TEAM = HFX859F777;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuickNote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -481,6 +490,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,7 +500,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -518,6 +528,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FF558E482A541E910029D631 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		FFF977CB2A52D6300079C863 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
@@ -529,6 +547,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FF558E492A541E910029D631 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF558E482A541E910029D631 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
 		FFF977CC2A52D6300079C863 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FFF977CB2A52D6300079C863 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
