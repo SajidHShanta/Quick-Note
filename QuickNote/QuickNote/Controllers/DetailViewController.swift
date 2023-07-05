@@ -36,7 +36,7 @@ class DetailViewController: UIViewController {
     @objc func deleteNote() {
         let vc = UIAlertController(title: "Are you Sure?", message: "Delete this note premanently", preferredStyle: .alert)
         vc.addAction(UIAlertAction(title: "Delete", style: .destructive) {_ in
-            guard let userId = Auth.auth().currentUser?.uid else {return}
+            guard let userId = Auth.auth().currentUser?.email else {return}
 
             //create firebase instance
             let db = Firestore.firestore()
@@ -61,7 +61,7 @@ class DetailViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
 //        DataSource.notes[noteIndex].details = noteDetailTextView.text
         
-        guard let userId = Auth.auth().currentUser?.uid else {return}
+        guard let userId = Auth.auth().currentUser?.email else {return}
         
         //Save the Edited verstion to firebase
         //create firebase instance

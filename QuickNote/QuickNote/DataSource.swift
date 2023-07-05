@@ -30,7 +30,7 @@ class DataSource {
         //delete previous note histry
         DataSource.notes.removeAll(keepingCapacity: true)
         
-        guard let userId = Auth.auth().currentUser?.uid else {return}
+        guard let userId = Auth.auth().currentUser?.email else {return}
         
         //create firebase instance
         let db = Firestore.firestore()

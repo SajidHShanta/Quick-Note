@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -35,7 +36,9 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         let userRequest = LoginUserRequest(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
         
-        AuthService.shared.signIn(with: userRequest) { error in
+        let credential = EmailAuthProvider.credential(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+
+        AuthService.shared.signIn(with: credential) { error in
             if let error = error {
                 self.loginErrorLabel.text = error.localizedDescription
                 self.loginErrorLabel.isHidden = false
@@ -47,5 +50,18 @@ class LoginViewController: UIViewController {
                 sceneDelegate.checkAuthentication()
             }
         }
+        
+//        AuthService.shared.signIn(with: userRequest) { error in
+//            if let error = error {
+//                self.loginErrorLabel.text = error.localizedDescription
+//                self.loginErrorLabel.isHidden = false
+//
+//                print(error.localizedDescription)
+//                return
+//            }
+//            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+//                sceneDelegate.checkAuthentication()
+//            }
+//        }
     }
 }

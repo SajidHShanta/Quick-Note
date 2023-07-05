@@ -33,7 +33,7 @@ class AddNoteViewController: UIViewController {
         
 //        db.collection("Notes").document(UUID().uuidString).setData(["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""]) { error in
         
-        guard let userId = Auth.auth().currentUser?.uid else {return}
+        guard let userId = Auth.auth().currentUser?.email else {return}
         
         db.collection("users").document("\(userId)/Notes/\(UUID().uuidString)").setData(["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""]) { error in
             if let error = error {

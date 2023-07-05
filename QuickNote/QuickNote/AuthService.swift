@@ -45,7 +45,8 @@ class AuthService {
             let db = Firestore.firestore()
             
             db.collection("users")
-                .document(resultUser.uid)
+//                .document(resultUser.uid)
+                .document(email)
                 .setData([
                     "username": username,
                     "email": email,
@@ -61,11 +62,8 @@ class AuthService {
         }
     }
     
-    public func signIn(with userRequest: LoginUserRequest, completion: @escaping (Error?)->Void) {
-        Auth.auth().signIn(
-            withEmail: userRequest.email,
-            password: userRequest.password
-        ) { result, error in
+    public func signIn(with userCredential: AuthCredential, completion: @escaping (Error?)->Void) {
+        Auth.auth().signIn(with: userCredential) { result, error in
             if let error = error {
                 completion(error)
                 return
@@ -74,6 +72,20 @@ class AuthService {
             }
         }
     }
+    
+//    public func signIn(with userRequest: LoginUserRequest, completion: @escaping (Error?)->Void) {
+//        Auth.auth().signIn(
+//            withEmail: userRequest.email,
+//            password: userRequest.password
+//        ) { result, error in
+//            if let error = error {
+//                completion(error)
+//                return
+//            } else {
+//                completion(nil)
+//            }
+//        }
+//    }
 
     public func signOut(completion: @escaping (Error?)->Void) {
         do {

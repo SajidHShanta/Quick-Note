@@ -30,43 +30,87 @@ extension ViewController {
             }
             
             guard
-                let user = result?.user,
-                let idToken = user.idToken
+              let authentication = result?.user,
+              let idToken = authentication.idToken
             else {
-                return
+              return
             }
+
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString,
+                                                           accessToken: authentication.accessToken.tokenString)
             
-            let credential = GoogleAuthProvider.credential(
-                withIDToken: idToken.tokenString,
-                accessToken: user.accessToken.tokenString)
-            
-            Auth.auth().signIn(with: credential) { result, error in
+            AuthService.shared.signIn(with: credential) { error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                // At this point, our user is signed in
                 
-                let username = result?.user.displayName ?? ""
-                guard let email = result?.user.email else { return }
-                
-                
+                let username = result?.user.profile?.name ?? ""
+                guard let email = result?.user.profile?.email else { return }
                 let db = Firestore.firestore()
-                
                 db.collection("users")
-                    .document(result?.user.uid ?? UUID().uuidString)
+                    .document(email)
                     .setData([
                         "username": username,
                         "email": email,
-                    ]) { error in
+                    ], merge: true) { error in
                         if let error = error {
+                            print(error)
                             return
                         }
                     }
                 
-                // At this point, our user is signed in
                 if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
                     sceneDelegate.checkAuthentication()
                 }
-                
             }
             
-            
+//            Auth.auth().signIn(with: credential) { result, error in
+//
+//                let username = result?.user.displayName ?? ""
+//                guard let email = result?.user.email else { return }
+//
+////                Auth.auth().fetchSignInMethods(forEmail: email) {
+////                    (providers, error) in
+////
+////                    if let error = error {
+////                        print(error.localizedDescription)
+////                    } else if let providers = providers {
+////                        print("snta:",providers)
+////                    }
+////                }
+//
+//                //                Auth.auth().fetchProviders(forEmail: email, completion: {
+//                //                        (providers, error) in
+//                //
+//                //                        if let error = error {
+//                //                            print(error.localizedDescription)
+//                //                        } else if let providers = providers {
+//                //                            print(providers)
+//                //                        }
+//                //                    })
+//
+//                let db = Firestore.firestore()
+//
+//                db.collection("users")
+//                    .document(email)
+//                    .setData([
+//                        "username": username,
+//                        "email": email,
+//                    ], merge: true) { error in
+//                        if let error = error {
+//                            print(error)
+//                            return
+//                        }
+//                    }
+//
+//                // At this point, our user is signed in
+//                if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+//                    sceneDelegate.checkAuthentication()
+//                }
+//
+//            }
         }
     }
 }

@@ -217,7 +217,6 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption1"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="forgotPasswordButtonPressed:" destination="tUN-8O-TND" eventType="touchUpInside" id="uvc-wY-uLv"/>
                                     <segue destination="Sg1-Al-z7n" kind="popoverPresentation" popoverAnchorView="MlQ-HI-nwW" id="SZq-hy-Q9K">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
