@@ -8,5 +8,6 @@ target 'QuickNote' do
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
   pod 'FirebaseStorage'
+  pod 'FBSDKLoginKit'
 
 end

@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-class AddNoteViewController: UIViewController {
+class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailsTextView: UITextView!
     
@@ -17,6 +17,32 @@ class AddNoteViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Add Note"
+    }
+    
+    
+    @IBAction func uploadImageButtonPressed(_ sender: Any) {
+        let picker = UIImagePickerController()
+            picker.allowsEditing = true
+            picker.delegate = self
+            present(picker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+
+        let imageName = UUID().uuidString
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+
+        if let jpegData = image.jpegData(compressionQuality: 0.8) {
+            try? jpegData.write(to: imagePath)
+        }
+
+        dismiss(animated: true) //dismiss the image picker
+    }
+
+    func getDocumentsDirectory() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path[0]
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {

@@ -7,12 +7,16 @@
 
 import UIKit
 import FirebaseAuth
+//import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var loginErrorLabel: UILabel!
+    
+//    @IBOutlet weak var googleSignInButton: GIDSignInButton!
+//    @IBOutlet weak var facebookSignInButton: FBSDKLoginButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
