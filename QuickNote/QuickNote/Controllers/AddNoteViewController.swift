@@ -13,6 +13,8 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate &
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailsTextView: UITextView!
     
+    var pickedImage: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +37,7 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate &
 
         if let jpegData = image.jpegData(compressionQuality: 0.8) {
             try? jpegData.write(to: imagePath)
+            pickedImage = imageName
         }
 
         dismiss(animated: true) //dismiss the image picker
@@ -61,7 +64,7 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate &
         
         guard let userId = Auth.auth().currentUser?.email else {return}
         
-        db.collection("users").document("\(userId)/Notes/\(UUID().uuidString)").setData(["title": titleTextField.text ?? "", "details": detailsTextView.text ?? ""]) { error in
+        db.collection("users").document("\(userId)/Notes/\(UUID().uuidString)").setData(["title": titleTextField.text ?? "", "details": detailsTextView.text ?? "", "image": pickedImage ?? ""]) { error in
             if let error = error {
                 print(error.localizedDescription)
             } else {

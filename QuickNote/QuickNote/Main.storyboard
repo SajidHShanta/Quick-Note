@@ -498,11 +498,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="121" translatesAutoresizingMaskIntoConstraints="NO" id="E1m-6q-Kwc">
-                                <rect key="frame" x="16" y="59" width="361" height="759"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XMB-4I-1Nl">
+                                <rect key="frame" x="16" y="59" width="361" height="773"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TND-dS-Igt">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="EyL-M4-iwN"/>
+                                        </constraints>
+                                    </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-e0-yuu">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="590"/>
+                                        <rect key="frame" x="0.0" y="200" width="361" height="525"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -510,7 +516,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evb-f6-Z7g">
-                                        <rect key="frame" x="0.0" y="711" width="361" height="48"/>
+                                        <rect key="frame" x="0.0" y="725" width="361" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="pWG-MY-zhN"/>
                                         </constraints>
@@ -521,26 +527,20 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="5kc-e0-yuu" firstAttribute="leading" secondItem="E1m-6q-Kwc" secondAttribute="leading" id="DaB-LD-C3m"/>
-                                    <constraint firstItem="evb-f6-Z7g" firstAttribute="leading" secondItem="E1m-6q-Kwc" secondAttribute="leading" id="Fw9-kW-BoT"/>
-                                    <constraint firstItem="5kc-e0-yuu" firstAttribute="top" secondItem="E1m-6q-Kwc" secondAttribute="top" id="L0H-os-cKm"/>
-                                    <constraint firstAttribute="trailing" secondItem="evb-f6-Z7g" secondAttribute="trailing" id="Q57-cq-5wc"/>
-                                    <constraint firstAttribute="trailing" secondItem="5kc-e0-yuu" secondAttribute="trailing" id="ayc-aC-p2S"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Td1-Aq-e0T"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Td1-Aq-e0T" firstAttribute="trailing" secondItem="E1m-6q-Kwc" secondAttribute="trailing" constant="16" id="5y5-bS-KsO"/>
-                            <constraint firstItem="E1m-6q-Kwc" firstAttribute="leading" secondItem="Zqk-fP-dLQ" secondAttribute="leading" constant="16" id="MEW-uw-kGB"/>
-                            <constraint firstItem="Td1-Aq-e0T" firstAttribute="bottom" secondItem="E1m-6q-Kwc" secondAttribute="bottom" id="Rag-Fb-RCQ"/>
-                            <constraint firstItem="E1m-6q-Kwc" firstAttribute="top" secondItem="Td1-Aq-e0T" secondAttribute="top" id="ZUU-29-FC4"/>
+                            <constraint firstItem="XMB-4I-1Nl" firstAttribute="leading" secondItem="Td1-Aq-e0T" secondAttribute="leading" constant="16" id="Gs8-3B-nZt"/>
+                            <constraint firstAttribute="trailing" secondItem="XMB-4I-1Nl" secondAttribute="trailing" constant="16" id="PcI-cl-wGq"/>
+                            <constraint firstItem="XMB-4I-1Nl" firstAttribute="top" secondItem="Td1-Aq-e0T" secondAttribute="top" id="fLO-ph-oYY"/>
+                            <constraint firstAttribute="bottom" secondItem="XMB-4I-1Nl" secondAttribute="bottom" constant="20" symbolic="YES" id="hiU-fK-U8M"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="noteDetailTextView" destination="5kc-e0-yuu" id="lSh-NF-CSG"/>
+                        <outlet property="noteImage" destination="TND-dS-Igt" id="1bU-m3-m7h"/>
                         <outlet property="saveButton" destination="evb-f6-Z7g" id="3I4-26-mvV"/>
                     </connections>
                 </viewController>

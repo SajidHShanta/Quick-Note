@@ -12,6 +12,7 @@ import FirebaseAuth
 class DetailViewController: UIViewController {
     @IBOutlet weak var noteDetailTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var noteImage: UIImageView!
     
     var noteIndex: Int!
     
@@ -31,6 +32,14 @@ class DetailViewController: UIViewController {
         title = note.title
 //        print("details:", note.details)
         noteDetailTextView.text = note.details
+        
+        if note.image != "" {
+            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let pathURL = path.appending(path: note.image)
+            noteImage.image = UIImage(contentsOfFile: pathURL.path())
+        } else {
+            noteImage.isHidden = true
+        }
     }
     
     @objc func deleteNote() {
