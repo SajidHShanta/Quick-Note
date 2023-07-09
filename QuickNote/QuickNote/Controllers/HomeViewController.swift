@@ -10,6 +10,8 @@ import UIKit
 class HomeViewController: UITableViewController {
     
     override func viewDidLoad() {
+        self.setupLoader(forSec: 1)
+        
         super.viewDidLoad()
         
         title = "Quick Notes"
@@ -80,6 +82,8 @@ class HomeViewController: UITableViewController {
         
         var content = cell.defaultContentConfiguration()
         content.text = DataSource.notes[indexPath.row].title
+        content.image = UIImage(systemName: DataSource.notes[indexPath.row].doc == "" ? "paperclip.circle" : "paperclip.circle.fill")
+        
         
         cell.contentConfiguration = content
         return cell

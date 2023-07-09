@@ -21,10 +21,10 @@ class DetailViewController: UIViewController {
     var noteIndex: Int!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
         self.setupLoader(forSec: 1)
-        
+
+        super.viewDidLoad()
+                
         noteDetailTextView.isEditable = false
         saveButton.isHidden = true
         
