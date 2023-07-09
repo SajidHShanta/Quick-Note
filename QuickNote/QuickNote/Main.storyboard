@@ -509,8 +509,14 @@
                                             <constraint firstAttribute="height" constant="200" id="EyL-M4-iwN"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEV-QG-N9z">
+                                        <rect key="frame" x="0.0" y="200" width="361" height="400"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="5Kq-cc-LHK"/>
+                                        </constraints>
+                                    </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5kc-e0-yuu">
-                                        <rect key="frame" x="0.0" y="200" width="361" height="525"/>
+                                        <rect key="frame" x="0.0" y="600" width="361" height="125"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -544,6 +550,7 @@
                         <outlet property="noteDetailTextView" destination="5kc-e0-yuu" id="lSh-NF-CSG"/>
                         <outlet property="noteImage" destination="TND-dS-Igt" id="1bU-m3-m7h"/>
                         <outlet property="saveButton" destination="evb-f6-Z7g" id="3I4-26-mvV"/>
+                        <outlet property="viewForPDF" destination="NEV-QG-N9z" id="CFh-Ae-zKn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzb-oM-3av" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -559,7 +566,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="bSP-qC-hzr">
-                                <rect key="frame" x="16" y="75.000000000000028" width="361" height="497.66666666666674"/>
+                                <rect key="frame" x="16" y="74.999999999999972" width="361" height="463.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3ok-DF-UoK">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="78.333333333333329"/>
@@ -609,7 +616,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TQ4-hV-BTL">
-                                        <rect key="frame" x="0.0" y="308.66666666666669" width="361" height="124.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="308.66666666666669" width="361" height="90.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attachments (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zof-Oz-o6T">
                                                 <rect key="frame" x="0.0" y="0.0" width="177.33333333333334" height="20.333333333333332"/>
@@ -617,27 +624,30 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AG1-fb-Non">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhJ-3j-exz">
                                                 <rect key="frame" x="0.0" y="30.333333333333318" width="361" height="34.333333333333343"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" image="square.and.arrow.up" catalog="system" title="  Upload Image" titleAlignment="center"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title=" Add Attachment" titleAlignment="center">
+                                                    <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="uploadImageButtonPressed:" destination="dgQ-jP-EVV" eventType="touchUpInside" id="wzp-sr-6DO"/>
+                                                    <action selector="uploadDocumentButtonPressed:" destination="dgQ-jP-EVV" eventType="touchUpInside" id="Pbq-D9-Qwn"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="shd-AM-ffZ">
-                                                <rect key="frame" x="0.0" y="74.666666666666629" width="184" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Sou-Uf-x1l"/>
-                                                </constraints>
-                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="attachments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRg-jT-Y1l">
+                                                <rect key="frame" x="0.0" y="74.666666666666629" width="361" height="15.666666666666671"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="AG1-fb-Non" secondAttribute="trailing" id="3fg-J5-cd5"/>
+                                            <constraint firstAttribute="trailing" secondItem="lhJ-3j-exz" secondAttribute="trailing" id="5mk-LT-JXK"/>
+                                            <constraint firstAttribute="trailing" secondItem="vRg-jT-Y1l" secondAttribute="trailing" id="hAq-sC-lAN"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAU-ff-mg3">
-                                        <rect key="frame" x="0.0" y="463.33333333333337" width="361" height="34.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="429" width="361" height="34.333333333333314"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Add Note"/>
                                         <connections>
@@ -664,8 +674,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="attachmentNameView" destination="vRg-jT-Y1l" id="pgS-Fo-efg"/>
                         <outlet property="detailsTextView" destination="lhJ-67-lhw" id="foP-ip-jqz"/>
-                        <outlet property="pickedImagePreviewView" destination="shd-AM-ffZ" id="8d2-M6-3Sq"/>
                         <outlet property="titleTextField" destination="DgZ-AL-W8x" id="QdH-uL-thF"/>
                     </connections>
                 </viewController>

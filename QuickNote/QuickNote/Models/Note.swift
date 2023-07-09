@@ -11,12 +11,12 @@ class Note: NSObject, Codable {
     let id: String
     var title: String
     var details: String
-    var image: String
+    var doc: String
     
-    init(id: String, title: String, details: String, image: String = "") {
+    init(id: String, title: String, details: String, doc: String = "") {
         self.id = id
         self.title = title
         self.details = details
-        self.image = image //will use empty string, if nil
+        self.doc = doc //will use empty string, if nil
     }
 }

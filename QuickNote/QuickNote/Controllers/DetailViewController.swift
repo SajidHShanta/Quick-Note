@@ -8,16 +8,22 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
+import PDFKit
+import UniformTypeIdentifiers
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var noteDetailTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var noteImage: UIImageView!
+    @IBOutlet weak var viewForPDF: UIView!
     
     var noteIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupLoader(forSec: 1)
         
         noteDetailTextView.isEditable = false
         saveButton.isHidden = true
@@ -33,12 +39,60 @@ class DetailViewController: UIViewController {
 //        print("details:", note.details)
         noteDetailTextView.text = note.details
         
-        if note.image != "" {
+//        if note.image != "" {
+//            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//            let pathURL = path.appending(path: note.image)
+//            noteImage.image = UIImage(contentsOfFile: pathURL.path())
+//        } else {
+//            noteImage.isHidden = true
+//        }
+        
+      
+        
+        if note.doc != "" {
+            //create firebase instance
+            let db = Firestore.firestore()
+            
+            let storageref = Storage.storage().reference()
+            
+            // Create a reference to the file you want to download
+            let docRef = storageref.child(note.doc)
+            
+            // Create local filesystem URL
             let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let pathURL = path.appending(path: note.image)
-            noteImage.image = UIImage(contentsOfFile: pathURL.path())
+            let localURL = path.appending(path: note.doc)
+
+            // Download to the local filesystem
+            let downloadTask = docRef.write(toFile: localURL) { url, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    guard let url = url else { return }
+                    guard let data = try? Data(contentsOf: url) else { return }
+                    
+                    if note.doc.hasSuffix("pdf") {
+                        if let document = PDFDocument(data: data){
+                            var pdfviewObject = PDFView()
+                            pdfviewObject = PDFView(frame: self.viewForPDF.bounds)
+                            self.viewForPDF.addSubview(pdfviewObject)
+                            pdfviewObject.document = document
+                            pdfviewObject.autoScales = true
+                        }
+                        self.viewForPDF.isHidden = false
+                        self.noteImage.isHidden = true
+                    } else if note.doc.hasSuffix("png") {
+                        self.noteImage.image = UIImage(data: data)
+                        self.noteImage.isHidden = false
+                        self.viewForPDF.isHidden = true
+                    } else {
+                        self.noteImage.isHidden = true
+                        self.viewForPDF.isHidden = true
+                    }
+                }
+            }
         } else {
             noteImage.isHidden = true
+            viewForPDF.isHidden = true
         }
     }
     
