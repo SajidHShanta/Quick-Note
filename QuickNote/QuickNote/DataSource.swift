@@ -12,7 +12,9 @@ import FirebaseAuth
 class DataSource {
 //    let defaults = UserDefaults.standard
     
-    static var notes: [Note] = []
+    private var notes: [Note] = []
+    static let shared = DataSource()
+    
     
 //    static func save() {
 //        let jsonEncoder = JSONEncoder()
@@ -26,9 +28,9 @@ class DataSource {
 //        }
 //    }
     
-    static func loadNoteDataFromFirebase() {
+     func loadNoteDataFromFirebase() {
         //delete previous note histry
-        DataSource.notes.removeAll(keepingCapacity: true)
+        self.notes.removeAll(keepingCapacity: true)
         
         guard let userId = Auth.auth().currentUser?.email else {return}
         
@@ -39,9 +41,16 @@ class DataSource {
             if error == nil && data != nil {
                 if let documents = data?.documents {
                     for document in documents {
-                        DataSource.notes.append(Note(id: document.documentID, title: document.data()["title"] as! String, details: document.data()["details"] as! String, doc: document.data()["doc"] as! String))
+                        
+                                                
+                        self.notes.append(Note(id: document.documentID, title: document.data()["title"] as! String, details: document.data()["details"] as! String, doc: document.data()["doc"] as! String))
                     }
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil) //reload main table
+                    
+                    let userInfo: [String: [Note]] = [
+                        "note": self.notes
+                    ]
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil, userInfo: userInfo) //reload main table
                 }
             } else {
                 print("Faield to read data")

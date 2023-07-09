@@ -134,7 +134,7 @@ class AddNoteViewController: UIViewController, UIDocumentPickerDelegate {
                 
                 //TODO: minimize the sheet
                 
-                DataSource.loadNoteDataFromFirebase()
+                DataSource.shared.loadNoteDataFromFirebase()
             }
         }
     }

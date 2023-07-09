@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     
+    var notes: [Note] = []
+    
     override func viewDidLoad() {
         self.setupLoader(forSec: 1)
         
@@ -28,14 +30,18 @@ class HomeViewController: UITableViewController {
 //            }
 //        }
         
-        DataSource.loadNoteDataFromFirebase()
+        DataSource.shared.loadNoteDataFromFirebase()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
     
+    
     @objc func loadList(notification: NSNotification){
         //load data here
-        self.tableView.reloadData()
+        if let notes = notification.userInfo?["note"] as? [Note] {
+            self.notes = notes
+            self.tableView.reloadData()
+        }
     }
     
     @objc func logoutButtonPressed(_ sender: Any) {
@@ -74,16 +80,15 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataSource.notes.count
+        return notes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
         
         var content = cell.defaultContentConfiguration()
-        content.text = DataSource.notes[indexPath.row].title
-        content.image = UIImage(systemName: DataSource.notes[indexPath.row].doc == "" ? "paperclip.circle" : "paperclip.circle.fill")
-        
+        content.text = self.notes[indexPath.row].title
+        content.image = UIImage(systemName: self.notes[indexPath.row].doc == "" ? "paperclip.circle" : "paperclip.circle.fill")
         
         cell.contentConfiguration = content
         return cell
@@ -91,7 +96,7 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteDetail") as? DetailViewController {
-            vc.noteIndex = indexPath.row
+            vc.note = notes[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }

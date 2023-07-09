@@ -17,8 +17,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var noteImage: UIImageView!
     @IBOutlet weak var viewForPDF: UIView!
+        
+    var note: Note!
     
-    var noteIndex: Int!
+//    init(note: Note) {
+//        self.note = note
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
     
     override func viewDidLoad() {
         self.setupLoader(forSec: 1)
@@ -34,9 +44,7 @@ class DetailViewController: UIViewController {
         
         navigationItem.rightBarButtonItems = [deleteButton, composeButton]
         
-        let note = DataSource.notes[noteIndex]
         title = note.title
-//        print("details:", note.details)
         noteDetailTextView.text = note.details
         
 //        if note.image != "" {
@@ -50,12 +58,9 @@ class DetailViewController: UIViewController {
       
         
         if note.doc != "" {
-            //create firebase instance
-            let db = Firestore.firestore()
-            
             let storageref = Storage.storage().reference()
             
-            // Create a reference to the file you want to download
+            // Create a reference to the file to download
             let docRef = storageref.child(note.doc)
             
             // Create local filesystem URL
@@ -70,7 +75,7 @@ class DetailViewController: UIViewController {
                     guard let url = url else { return }
                     guard let data = try? Data(contentsOf: url) else { return }
                     
-                    if note.doc.hasSuffix("pdf") {
+                    if self.note.doc.hasSuffix("pdf") {
                         if let document = PDFDocument(data: data){
                             var pdfviewObject = PDFView()
                             pdfviewObject = PDFView(frame: self.viewForPDF.bounds)
@@ -80,7 +85,7 @@ class DetailViewController: UIViewController {
                         }
                         self.viewForPDF.isHidden = false
                         self.noteImage.isHidden = true
-                    } else if note.doc.hasSuffix("png") {
+                    } else if self.note.doc.hasSuffix("png") {
                         self.noteImage.image = UIImage(data: data)
                         self.noteImage.isHidden = false
                         self.viewForPDF.isHidden = true
@@ -104,10 +109,10 @@ class DetailViewController: UIViewController {
             //create firebase instance
             let db = Firestore.firestore()
             // delete current Note
-            db.collection("users/\(userId)/Notes").document(DataSource.notes[self.noteIndex].id).delete()
+            db.collection("users/\(userId)/Notes").document(self.note.id).delete()
             
             // reload main data to update
-            DataSource.loadNoteDataFromFirebase()
+            DataSource.shared.loadNoteDataFromFirebase()
             
             // go back to previous view
             self.navigationController?.popViewController(animated: true)
@@ -130,12 +135,12 @@ class DetailViewController: UIViewController {
         //create firebase instance
         let db = Firestore.firestore()
         // save updated version
-        db.collection("users/\(userId)/Notes").document(DataSource.notes[noteIndex].id).updateData(["details": noteDetailTextView.text as String])
+        db.collection("users/\(userId)/Notes").document(self.note.id).updateData(["details": noteDetailTextView.text as String])
         
         saveButton.isHidden = true
         noteDetailTextView.isEditable = false
         
         // reload main data to update
-        DataSource.loadNoteDataFromFirebase()
+        DataSource.shared.loadNoteDataFromFirebase()
     }
 }
