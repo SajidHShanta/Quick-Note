@@ -44,6 +44,7 @@ extension ViewController {
                     print(error.localizedDescription)
                     return
                 }
+                
                 // At this point, our user is signed in
                 
                 let username = result?.user.profile?.name ?? ""

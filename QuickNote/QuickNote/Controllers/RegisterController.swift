@@ -15,6 +15,16 @@ class RegisterController: UIViewController {
     @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var confirmPasswordTextField: PasswordTextField!
     @IBOutlet weak var registerErrorLabel: UILabel!
+    @IBOutlet weak var registerButton: UIButton!
+    
+    var buttonPressed = false {
+        didSet {
+            registerButton.isEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.registerButton.isEnabled = true
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +57,8 @@ class RegisterController: UIViewController {
     
     
     @IBAction func registerButtonPressed(_ sender: Any) {
+        buttonPressed.toggle()
+        
         if passwordTextField.text != confirmPasswordTextField.text {
             self.registerErrorLabel.text = "New password and confirm password don't match"
             self.registerErrorLabel.isHidden = false
@@ -64,6 +76,9 @@ class RegisterController: UIViewController {
                 print(error.localizedDescription)
                 return
             }
+            
+            self.setupLoader(forSec: 1)
+            
             print("isRegistered:",isRegistered)
             if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
                 sceneDelegate.checkAuthentication()

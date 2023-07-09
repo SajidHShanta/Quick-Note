@@ -7,16 +7,27 @@
 
 import UIKit
 import FirebaseAuth
-//import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: PasswordTextField!
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginErrorLabel: UILabel!
     
-//    @IBOutlet weak var googleSignInButton: GIDSignInButton!
-//    @IBOutlet weak var facebookSignInButton: FBSDKLoginButton!
+    var buttonPressed = false {
+        didSet {
+            loginButton.isEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.loginButton.isEnabled = true
+            }
+//            if buttonPressed {
+//                loginButton.isEnabled = false
+//            } else {
+//                loginButton.isEnabled = true
+//            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +48,10 @@ class LoginViewController: UIViewController {
         passwordTextField.addBottomBorder()
     }
     
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        let userRequest = LoginUserRequest(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+//        let userRequest = LoginUserRequest(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+        
+        buttonPressed.toggle() // disable button for 1 sec
         
         let credential = EmailAuthProvider.credential(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "")
 
@@ -50,11 +63,13 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
                 return
             }
+            
+            self.setupLoader(forSec: 1)
+            
             if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
                 sceneDelegate.checkAuthentication()
             }
         }
-        
 //        AuthService.shared.signIn(with: userRequest) { error in
 //            if let error = error {
 //                self.loginErrorLabel.text = error.localizedDescription

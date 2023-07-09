@@ -54,8 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         DispatchQueue.main.async { [weak self] in
             UIView.animate(withDuration: 0.25) {
-                self?.window?.layer.opacity = 0
-                
+//                self?.window?.layer.opacity = 0
             } completion: { [weak self] _ in
                 let vc = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as UIViewController
                 vc.modalPresentationStyle = .fullScreen

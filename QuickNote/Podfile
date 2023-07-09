@@ -9,5 +9,6 @@ target 'QuickNote' do
   pod 'FirebaseFirestore'
   pod 'FirebaseStorage'
   pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
 
 end

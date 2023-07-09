@@ -20,6 +20,8 @@
 		5BC8650F2A42C34D00FE6079 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8650D2A42C34D00FE6079 /* UITextFieldExtension.swift */; };
 		5BC865172A43049600FE6079 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865162A43049600FE6079 /* AuthService.swift */; };
 		5BC8651A2A43064000FE6079 /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC865192A43064000FE6079 /* RegisterUserRequest.swift */; };
+		FF3334F72A56B36E0007D9FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF3334F62A56B36E0007D9FD /* GoogleService-Info.plist */; };
+		FF396AAF2A5A6CF600C8E5B1 /* LoaderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF396AAE2A5A6CF600C8E5B1 /* LoaderExtension.swift */; };
 		FF3F48C62A480660009489AC /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C52A480660009489AC /* LoginUserRequest.swift */; };
 		FF3F48C82A4809FD009489AC /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C72A4809FD009489AC /* LandingViewController.swift */; };
 		FF3F48CA2A480B43009489AC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48C92A480B43009489AC /* AlertManager.swift */; };
@@ -27,8 +29,6 @@
 		FF3F48D52A498A29009489AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D42A498A29009489AC /* HomeViewController.swift */; };
 		FF3F48D92A498AFD009489AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48D82A498AFD009489AC /* DetailViewController.swift */; };
 		FF3F48DB2A499637009489AC /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F48DA2A499637009489AC /* AddNoteViewController.swift */; };
-		FF558E4A2A541E910029D631 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FF558E492A541E910029D631 /* GoogleSignIn */; };
-		FF558E4C2A54201E0029D631 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF558E4B2A54201E0029D631 /* GoogleService-Info.plist */; };
 		FF558E4E2A542A180029D631 /* OtherSigninHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF558E4D2A542A180029D631 /* OtherSigninHelper.swift */; };
 		FFF236682A4AEA7700691AAB /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF236672A4AEA7700691AAB /* DataSource.swift */; };
 		FFF977CA2A52B8440079C863 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF977C92A52B8440079C863 /* ResetPasswordViewController.swift */; };
@@ -53,6 +53,8 @@
 		5BC865162A43049600FE6079 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		5BC865192A43064000FE6079 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 		7B735631C6EB27EEABE247D5 /* Pods-QuickNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickNote.debug.xcconfig"; path = "Target Support Files/Pods-QuickNote/Pods-QuickNote.debug.xcconfig"; sourceTree = "<group>"; };
+		FF3334F62A56B36E0007D9FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FF396AAE2A5A6CF600C8E5B1 /* LoaderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderExtension.swift; sourceTree = "<group>"; };
 		FF3F48C52A480660009489AC /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
 		FF3F48C72A4809FD009489AC /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		FF3F48C92A480B43009489AC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -60,7 +62,6 @@
 		FF3F48D42A498A29009489AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FF3F48D82A498AFD009489AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FF3F48DA2A499637009489AC /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
-		FF558E4B2A54201E0029D631 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF558E4D2A542A180029D631 /* OtherSigninHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSigninHelper.swift; sourceTree = "<group>"; };
 		FFF236672A4AEA7700691AAB /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		FFF977C92A52B8440079C863 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 			files = (
 				1A0CFF971BBA4B41E8B9AF0E /* Pods_QuickNote.framework in Frameworks */,
 				FFF977CD2A52D6300079C863 /* IQKeyboardManagerSwift in Frameworks */,
-				FF558E4A2A541E910029D631 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				5BC864EC2A42C1EE00FE6079 /* QuickNote */,
+				FF3334F62A56B36E0007D9FD /* GoogleService-Info.plist */,
 				5BC864EB2A42C1EE00FE6079 /* Products */,
 				46602E03CE57437E3B0D749F /* Pods */,
 				10940329B2863AF5E08923B4 /* Frameworks */,
@@ -130,7 +131,6 @@
 				5BC865162A43049600FE6079 /* AuthService.swift */,
 				FF3F48C92A480B43009489AC /* AlertManager.swift */,
 				FFF236672A4AEA7700691AAB /* DataSource.swift */,
-				FF558E4B2A54201E0029D631 /* GoogleService-Info.plist */,
 			);
 			path = QuickNote;
 			sourceTree = "<group>";
@@ -140,6 +140,7 @@
 			children = (
 				5BC8650C2A42C34D00FE6079 /* PasswordTextField.swift */,
 				5BC8650D2A42C34D00FE6079 /* UITextFieldExtension.swift */,
+				FF396AAE2A5A6CF600C8E5B1 /* LoaderExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,7 +191,6 @@
 			name = QuickNote;
 			packageProductDependencies = (
 				FFF977CC2A52D6300079C863 /* IQKeyboardManagerSwift */,
-				FF558E492A541E910029D631 /* GoogleSignIn */,
 			);
 			productName = QuickNote;
 			productReference = 5BC864EA2A42C1EE00FE6079 /* QuickNote.app */;
@@ -239,7 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC865082A42C28800FE6079 /* Main.storyboard in Resources */,
-				FF558E4C2A54201E0029D631 /* GoogleService-Info.plist in Resources */,
+				FF3334F72A56B36E0007D9FD /* GoogleService-Info.plist in Resources */,
 				5BC864FA2A42C1F000FE6079 /* LaunchScreen.storyboard in Resources */,
 				5BC864F72A42C1F000FE6079 /* Assets.xcassets in Resources */,
 			);
@@ -307,6 +307,7 @@
 				5BC864EE2A42C1EE00FE6079 /* AppDelegate.swift in Sources */,
 				FF3F48C62A480660009489AC /* LoginUserRequest.swift in Sources */,
 				FF558E4E2A542A180029D631 /* OtherSigninHelper.swift in Sources */,
+				FF396AAF2A5A6CF600C8E5B1 /* LoaderExtension.swift in Sources */,
 				FF3F48C82A4809FD009489AC /* LandingViewController.swift in Sources */,
 				FF3F48DB2A499637009489AC /* AddNoteViewController.swift in Sources */,
 				FF3F48CA2A480B43009489AC /* AlertManager.swift in Sources */,
@@ -547,11 +548,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FF558E492A541E910029D631 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF558E482A541E910029D631 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
 		FFF977CC2A52D6300079C863 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FFF977CB2A52D6300079C863 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;

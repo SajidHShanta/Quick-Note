@@ -8,10 +8,12 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailsTextView: UITextView!
+    @IBOutlet weak var pickedImagePreviewView: UIImageView!
     
     var pickedImage: String?
     
@@ -19,6 +21,8 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate &
         super.viewDidLoad()
 
         title = "Add Note"
+        
+        pickedImagePreviewView.isHidden = true
     }
     
     
@@ -31,22 +35,36 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate &
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
+        
+        pickedImagePreviewView.image = image
+        pickedImagePreviewView.isHidden = false
 
-        let imageName = UUID().uuidString
-        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
-
-        if let jpegData = image.jpegData(compressionQuality: 0.8) {
-            try? jpegData.write(to: imagePath)
-            pickedImage = imageName
+        let imageName = "images/"+UUID().uuidString
+        
+        //write to local storage
+//        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+//        if let jpegData = image.jpegData(compressionQuality: 0.8) {
+//            try? jpegData.write(to: imagePath)
+//        }
+        
+        // upload image to forebase
+        let storageref = Storage.storage().reference()
+        let imagenode = storageref.child(imageName)
+        imagenode.putData(image.pngData()!) { metaData, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.pickedImage = imageName
+            }
         }
-
+        
         dismiss(animated: true) //dismiss the image picker
     }
 
-    func getDocumentsDirectory() -> URL {
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return path[0]
-    }
+//    func getDocumentsDirectory() -> URL {
+//        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        return path[0]
+//    }
     
     @IBAction func addButtonPressed(_ sender: Any) {
 //        let newNote = Note(title: titleTextField.text ?? "", details: detailsTextView.text ?? "")
@@ -70,6 +88,7 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate &
             } else {
                 self.titleTextField.text = ""
                 self.detailsTextView.text = ""
+                self.pickedImagePreviewView.isHidden = true
                 
                 //TODO: minimize the sheet
                 

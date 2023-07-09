@@ -8,7 +8,6 @@
 import UIKit
 import FirebaseCore
 import FirebaseAuth
-import GoogleSignIn
 
 class ViewController: UIViewController {
     @IBOutlet weak var segmentedPicker: UISegmentedControl!
@@ -51,7 +50,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func googleSignin(_ sender: Any) {
-        setupGoogle()
+       setupGoogle()
     }
     
     @IBAction func facebookSignin(_ sender: Any) {
